@@ -1,0 +1,78 @@
+
+/* General styles */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+/* Navigation */
+
+nav {
+    background-color: #264653;
+    padding: 1rem;
+}
+
+nav a {
+    color: white;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+/* Main content */
+
+main {
+    max-width: 840px;
+}
+
+h1 {
+    color: #264653;
+}
+
+main img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 2px;
+    box-shadow: 0 0 15px gray;
+}
+
+/* Paragraphs */
+
+p {
+    padding: 0;
+}
+
+/* Aside - El Salvador */
+
+aside {
+    width: 220px;
+    margin: 1rem;
+    border: 1px solid #999;
+    padding: 10px;
+    background-color: #e9f2f5;
+    color: #222;
+}
+
+aside h2 {
+    color: #264653;
+    text-align: center;
+}
+
+aside img {
+    width: 200px;
+    height: auto;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 1rem;
+    border-top: 1px solid #999;
+    text-align: center;
+}
