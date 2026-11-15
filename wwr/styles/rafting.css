@@ -1,0 +1,157 @@
+:root {
+  --primary-color: #123f46;
+  --secondary-color: #f2e6cf;
+  --accent1-color: #203236;
+  --accent2-color: #f6f9f7;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --body-font: Arial, Helvetica, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--accent1-color);
+  background-color: var(--accent2-color);
+  line-height: 1.5;
+}
+
+header, main, footer {
+  width: 840px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+}
+
+nav, p, section, article {
+  margin: 16px;
+  padding: 8px;
+}
+
+header, footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+}
+
+header {
+  padding: 12px 24px;
+}
+
+.logo {
+  display: block;
+  width: 90px;
+  height: auto;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  padding: 8px 12px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+header nav a[aria-current="page"] {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero h1 {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(18, 63, 70, 0.94);
+  color: #fff;
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.hero article {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  left: 0;
+  padding: 16px;
+  background-color: var(--accent2-color);
+}
+
+.hero article img {
+  float: right;
+  width: 125px;
+  margin-left: 16px;
+}
+
+.hero article p, section p {
+  margin: 0;
+  padding: 0;
+}
+
+section h2 {
+  margin-bottom: 8px;
+}
+
+.socialmedia {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.socialmedia a {
+  text-decoration: none;
+}
+
+.socialmedia img {
+  display: block;
+}
+
+@media (max-width: 540px) {
+  header, footer {
+    justify-content: center;
+  }
+
+  header nav {
+    justify-content: center;
+  }
+
+  .hero > img {
+    min-height: 345px;
+    object-fit: cover;
+  }
+
+  .hero article img {
+    width: 90px;
+    margin-left: 12px;
+  }
+
+  footer p {
+    text-align: center;
+  }
+}
