@@ -21,8 +21,8 @@ body {
 }
 
 header, main, footer {
-  width: 840px;
-  max-width: 100%;
+  width: calc(100% - 32px);
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -31,56 +31,70 @@ h1, h2 {
   color: var(--primary-color);
 }
 
-nav, p, section, article {
-  margin: 16px;
-  padding: 8px;
-}
-
 header, footer {
-  display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   background-color: var(--secondary-color);
 }
 
 header {
-  padding: 12px 24px;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 24px;
+  padding: 16px 24px;
 }
 
 .logo {
   display: block;
   width: 90px;
   height: auto;
+  justify-self: center;
 }
 
 header nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin: 0;
-  padding: 0;
+  gap: 8px;
+  width: 100%;
+  max-width: 520px;
+  justify-self: end;
 }
 
 header nav a {
+  flex: 1 1 100px;
   padding: 8px 12px;
   color: var(--primary-color);
+  background-color: var(--accent2-color);
   font-weight: bold;
+  text-align: center;
+  text-decoration: none;
 }
 
-header nav a[aria-current="page"] {
+header nav a[aria-current="page"],
+header nav a:hover {
   background-color: var(--primary-color);
   color: #fff;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
+main {
+  display: grid;
+  gap: 16px;
+  padding: 16px 0;
 }
 
 .hero {
   position: relative;
 }
 
-.hero img {
+.hero > img {
   display: block;
   width: 100%;
-  height: auto;
+  height: clamp(350px, 46vw, 430px);
+  object-fit: cover;
 }
 
 .hero h1 {
@@ -96,32 +110,76 @@ header nav a[aria-current="page"] {
 
 .hero article {
   position: absolute;
-  right: 0;
-  bottom: 12px;
-  left: 0;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
   padding: 16px;
   background-color: var(--accent2-color);
+  display: flow-root;
 }
 
 .hero article img {
+  display: block;
   float: right;
   width: 125px;
+  height: auto;
   margin-left: 16px;
 }
 
-.hero article p, section p {
-  margin: 0;
-  padding: 0;
+.history, .adventures {
+  padding: 24px;
+  border: 1px solid #bdceca;
+  background-color: #fff;
 }
 
 section h2 {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.history-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(140px, 220px) 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.adventure-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  text-align: center;
+}
+
+.history-layout img, .adventure-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.adventure-gallery figcaption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px 24px;
+}
+
+footer p {
+  flex: 1 1 320px;
+  text-align: center;
 }
 
 .socialmedia {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto;
 }
 
 .socialmedia a {
@@ -132,26 +190,44 @@ section h2 {
   display: block;
 }
 
-@media (max-width: 540px) {
-  header, footer {
-    justify-content: center;
+@media (max-width: 700px) {
+  .history-layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  header nav {
-    justify-content: center;
+  .history-layout img {
+    max-width: 320px;
+    justify-self: center;
   }
 
-  .hero > img {
-    min-height: 345px;
-    object-fit: cover;
+  .adventure-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  header {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .hero article {
+    inset: auto 10px 10px;
+    padding: 12px;
   }
 
   .hero article img {
-    width: 90px;
+    width: 80px;
     margin-left: 12px;
   }
 
-  footer p {
-    text-align: center;
+  .history, .adventures {
+    padding: 16px;
+  }
+
+  .adventure-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
